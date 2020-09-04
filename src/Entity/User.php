@@ -38,7 +38,7 @@ class User implements UserInterface
     private $is_admin;
 
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $gender;
 
