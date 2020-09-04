@@ -77,6 +77,16 @@ class User implements UserInterface
      */
     private $fidelityCard;
 
+    /**
+     * @ORM\OneToOne(targetEntity=PictureFile::class, cascade={"persist", "remove"})
+     */
+    private $pictureFile;
+
+    /**
+     * @ORM\OneToOne(targetEntity=Appointment::class, cascade={"persist", "remove"})
+     */
+    private $appointments;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -258,6 +268,30 @@ class User implements UserInterface
     public function setFidelityCard(?bool $fidelityCard): self
     {
         $this->fidelityCard = $fidelityCard;
+
+        return $this;
+    }
+
+    public function getPictureFile(): ?PictureFile
+    {
+        return $this->pictureFile;
+    }
+
+    public function setPictureFile(?PictureFile $pictureFile): self
+    {
+        $this->pictureFile = $pictureFile;
+
+        return $this;
+    }
+
+    public function getAppointments(): ?Appointment
+    {
+        return $this->appointments;
+    }
+
+    public function setAppointments(?Appointment $appointments): self
+    {
+        $this->appointments = $appointments;
 
         return $this;
     }
